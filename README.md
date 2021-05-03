@@ -5,7 +5,7 @@
 
 ## Part 1:
 
-LINK TO YOUR PUBLISHED SITE
+[https://cbaucke.github.io/Lab5-1/](https://cbaucke.github.io/Lab5-1/)
 
 ## Part 2:
 
