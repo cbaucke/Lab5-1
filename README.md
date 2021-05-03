@@ -9,4 +9,4 @@
 
 ## Part 2:
 
-LINK TO YOUR PART 2 REPOSITORY
+[https://github.com/cbaucke/github-actions-for-ci/issues/7](https://github.com/cbaucke/github-actions-for-ci/issues/7)
