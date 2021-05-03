@@ -19,15 +19,17 @@ imgInput.addEventListener('change', () => {
 
 // Fires whenever the img object loads a new image (such as with img.src =)
 img.addEventListener('load', () => {
-  //TODO
   //Clear canvas
   context.clearRect(0, 0, canvas.width, canvas.height);
+
   //Disable clear, read text buttons
   clearBtn.disabled = true;
   readBtn.disabled = true;
+
   //Fill context with black
   context.fillStyle = 'black';
   context.fillRect(0, 0, canvas.width, canvas.height);
+
   //Draw image
   const imgDims = getDimmensions(canvas.width, canvas.height, img.width, img.height);
   context.drawImage(img, imgDims.startX, imgDims.startY, imgDims.width, imgDims.height);
@@ -42,14 +44,14 @@ form.addEventListener('submit', (event) => {
   //Add text to canvas
   const topText = document.getElementById('text-top').value;
   const botText = document.getElementById('text-bottom').value;
+  context.fillStyle = 'white';
   context.fillText(topText, canvas.width/2, 35);
   context.fillText(botText, canvas.width/2, canvas.height - 15);
+
   //Enable clear, read text buttons
   clearBtn.disabled = false;
   readBtn.disabled = false;
   document.getElementById('voice-selection').disabled = false;
-
-  event.preventDefault();
 
   //Generate voice list
   let voices = speechSynthesis.getVoices();
@@ -60,6 +62,8 @@ form.addEventListener('submit', (event) => {
     option.setAttribute('value', voices[i]);
     document.getElementById("voice-selection").appendChild(option);
   }
+
+  event.preventDefault();
 });
 
 clearBtn.addEventListener('click', () => {
@@ -73,6 +77,7 @@ readBtn.addEventListener('click', () => {
   const topText = document.getElementById('text-top').value;
   const botText = document.getElementById('text-bottom').value;
   const toSpeak = new SpeechSynthesisUtterance(topText + " " + botText);
+
   //Update properties
   console.log("value being assigned: " + document.getElementById('voice-selection').value);
   toSpeak.voice = document.getElementById('voice-selection').value;
